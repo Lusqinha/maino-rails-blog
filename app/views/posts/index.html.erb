@@ -3,8 +3,9 @@
     <h2>
         <%= link_to post.title, post %>
     </h2>
+    <% end %>
+        <%= link_to "Novo Post" , new_post_path if user_signed_in? %>
+
     <p>
         <%= paginate @posts %>
     </p>
-    <% end %>
-        <%= link_to "Novo Post" , new_post_path if user_signed_in? %>
