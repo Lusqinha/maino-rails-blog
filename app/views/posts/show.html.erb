@@ -23,5 +23,3 @@
             <% end %>
 
               <%= link_to "Editar" , edit_post_path(@post) if current_user==@post.user %>
-                <%= link_to "Excluir" , @post, method: :delete, data: { confirm: "Tem certeza?" } if
-                  current_user==@post.user %>
