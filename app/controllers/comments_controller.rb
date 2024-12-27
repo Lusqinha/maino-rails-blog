@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
+    @comment.user = current_user if user_signed_in?
 
     if @comment.save
       redirect_to @post, notice: "Comentário adicionado com sucesso!"
