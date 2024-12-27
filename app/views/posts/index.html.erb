@@ -4,7 +4,7 @@
         <%= link_to post.title, post %>
     </h2>
     <p>
-        <%= truncate(post.content, length: 100) %>
+        <%= paginate @posts %>
     </p>
     <% end %>
         <%= link_to "Novo Post" , new_post_path if user_signed_in? %>
