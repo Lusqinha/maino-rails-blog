@@ -8,6 +8,10 @@ def index
   @posts = Post.page(params[:page]).per(3)
 end
 
+  def show
+    @comment = Comment.new
+  end
+
   def new
     @post = Post.new
   end
