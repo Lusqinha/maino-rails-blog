@@ -1,6 +1,7 @@
 pt_BR:
   hello: "Olá"
   posts:
+    posts: "Publicações"
     title: "Título"
     content: "Conteúdo"
     new_post: "Criar Novo Post"

@@ -1,6 +1,6 @@
 <div class="comment">
     <p><strong>
-            <%= comment.user&.name || "Anônimo" %>:
+            <%= comment.user&.name || t('comments.anonymous') %>:
         </strong></p>
     <p>
         <%= comment.content %>

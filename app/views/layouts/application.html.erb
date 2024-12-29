@@ -20,26 +20,26 @@
 
   <body>
 
-        <nav>
-          <%= link_to "Home" , root_path %>
-            <% if user_signed_in? %>
-              <%= link_to "Novo Post" , new_post_path %>
-              <%= button_to "logout" , destroy_user_session_path, method: :delete %>
-                  <% else %>
-                    <%= link_to "Login" , new_user_session_path %>
-                      <%= link_to "Sign Up" , new_user_registration_path %>
-                      
-                        <% end %>
-                      <%= link_to "English" , locale: :en %>
-                        <%= link_to "Português" , locale: :'pt_BR' %>
+    <nav>
+      <%= link_to t('home'), root_path %>
+      <% if user_signed_in? %>
+        <%= link_to t('posts.new_post'), new_post_path %>
+        <%= button_to t('logout'), destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to t('login'), new_user_session_path %>
+        <%= link_to t('sign_up'), new_user_registration_path %>
+      <% end %>
+      <%= link_to "English", url_for(locale: :en) %>
+      <%= link_to "Português", url_for(locale: :'pt_BR') %>
+    </nav>
 
-        </nav>
     <% if notice %>
-    <p style="color: green"><%= notice %></p>
-    <% end %> <% if alert %>
-    <p style="color: red"><%= alert %></p>
-    <% end %> 
-     
+      <p style="color: green"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p style="color: red"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

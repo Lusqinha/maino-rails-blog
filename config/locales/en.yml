@@ -1,6 +1,7 @@
 en:
   hello: "Hello"
   posts:
+    posts: "Publicações"
     title: "Title"
     content: "Content"
     new_post: "Create New Post"
@@ -10,9 +11,8 @@ en:
     comments: "Comments"
     new_comment: "New Comment"
     submit_comment: "Submit Comment"
-    anonymous: "Anonymous"
     logged_in_comment: "You are logged in and your comment will be associated with your user."
     anonymous_comment: "You are logged out and will comment as anonymous."
     are_you_shure: "Are you sure?"
   comments:
-    title: "Title"
+    anonymous: "Anonymous"

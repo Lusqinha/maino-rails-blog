@@ -1,15 +1,15 @@
-<h1>Criar Novo Post</h1>
+<h1><%= t('posts.new_post') %></h1>
 
 <%= form_with model: @post, local: true do |f| %>
-    <div>
-        <%= f.label :title, "Título" %>
-            <%= f.text_field :title %>
-    </div>
-    <div>
-        <%= f.label :content, "Conteúdo" %>
-            <%= f.text_area :content %>
-    </div>
-    <div>
-        <%= f.submit "Salvar Post" %>
-    </div>
-    <% end %>
+  <div class="field">
+    <%= f.label :title, t('posts.title') %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, t('posts.content') %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('posts.save') %>
+  </div>
+<% end %>

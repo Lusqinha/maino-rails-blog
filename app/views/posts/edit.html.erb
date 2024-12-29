@@ -1,40 +1,33 @@
-<h1>
-    <%= t('posts.edit_post') %>
-</h1>
+<h1><%= t('posts.edit_post') %></h1>
 
 <%= form_with(model: @post, local: true) do |form| %>
-    <% if @post.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@post.errors.count, "error" ) %>
-                    <%= t('posts.prohibited_from_being_saved') %>:
-            </h2>
-
-            <ul>
-                <% @post.errors.full_messages.each do |message| %>
-                    <li>
-                        <%= message %>
-                    </li>
-                    <% end %>
-            </ul>
-        </div>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> <%= t('posts.prohibited_from_being_saved') %>:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-            <div class="field">
-                <%= form.label :title, t('posts.title') %>
-                    <%= form.text_field :title %>
-            </div>
+  <div class="field">
+    <%= form.label :title, t('posts.title') %>
+    <%= form.text_field :title %>
+  </div>
 
-            <div class="field">
-                <%= form.label :content, t('posts.content') %>
-                    <%= form.text_area :content %>
-            </div>
+  <div class="field">
+    <%= form.label :content, t('posts.content') %>
+    <%= form.text_area :content %>
+  </div>
 
-            <div class="actions">
-                <%= form.submit t('posts.save') %>
-            </div>
-            <% end %>
+  <div class="actions">
+    <%= form.submit t('posts.save') %>
+  </div>
+<% end %>
 
-                <%= link_to t('posts.back'), posts_path %>
-                    <%= button_to t('posts.delete'), @post, method: :delete, data: { confirm: t('posts.are_you_sure'), },
-                        class: 'btn btn-danger' %>
+<%= link_to t('posts.back'), posts_path %>
+<%= button_to t('posts.delete'), @post, method: :delete, data: { confirm: t('posts.are_you_sure') }, class: 'btn btn-danger' %>

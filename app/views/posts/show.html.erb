@@ -1,25 +1,23 @@
-<h1>
-  <%= @post.title %>
-</h1>
-<p>
-  <%= @post.content %>
-</p>
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
 
-<h2>Comentários</h2>
+<h2><%= t('posts.comments') %></h2>
 <%= render @post.comments %>
 
-  <%= form_with model: [@post, @comment], local: true do |f| %>
-    <div>
-      <%= f.label :content, "Novo Comentário" %>
-        <%= f.text_area :content %>
-    </div>
-    <%= f.submit "Comentar" %>
-      <% end %>
+<%= form_with model: [@post, @comment], local: true do |f| %>
+  <div class="field">
+    <%= f.label :content, t('posts.new_comment') %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('posts.submit_comment') %>
+  </div>
+<% end %>
 
-        <% if user_signed_in? %>
-          <p>Você está logado e seu comentário será associado ao seu usuário.</p>
-          <% else %>
-            <p>Você está deslogado e comentará como anônimo.</p>
-            <% end %>
+<% if user_signed_in? %>
+  <p><%= t('posts.logged_in_comment') %></p>
+<% else %>
+  <p><%= t('posts.anonymous_comment') %></p>
+<% end %>
 
-              <%= link_to "Editar" , edit_post_path(@post) if current_user==@post.user %>
+<%= link_to t('posts.edit_post'), edit_post_path(@post) if current_user == @post.user %>
