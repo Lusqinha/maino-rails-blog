@@ -1,5 +1,8 @@
 pt_BR:
-  hello: "Olá"
+  home: "Início"
+  errors:
+    messages:
+      blank: "Não pode ser vazio"
   posts:
     posts: "Publicações"
     title: "Título"

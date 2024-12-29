@@ -1,5 +1,8 @@
 en:
-  hello: "Hello"
+  home: "Home"
+  errors:
+    messages:
+      blank: "can't be blank"
   posts:
     posts: "Publicações"
     title: "Title"
