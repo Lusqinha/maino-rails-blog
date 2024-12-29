@@ -14,5 +14,16 @@ en:
     logged_in_comment: "You are logged in and your comment will be associated with your user."
     anonymous_comment: "You are logged out and will comment as anonymous."
     are_you_shure: "Are you sure?"
+    create:
+      success: "Post created successfully!"
+      failure: "Error creating the post."
+    update:
+      success: "Post updated successfully!"
+      failure: "Error updating the post."
+    destroy:
+      success: "Post deleted successfully!"
   comments:
     anonymous: "Anonymous"
+    create:
+      success: "Comment added successfully!"
+      failure: "Error adding the comment."

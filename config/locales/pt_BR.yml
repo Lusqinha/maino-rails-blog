@@ -15,5 +15,16 @@ pt_BR:
     logged_in_comment: "Você está logado e seu comentário será associado ao seu usuário."
     anonymous_comment: "Você está deslogado e comentará como anônimo."
     are_you_sure: "Você tem certeza?"
+    create:
+      success: "Post criado com sucesso!"
+      failure: "Erro ao criar o post."
+    update:
+      success: "Post atualizado com sucesso!"
+      failure: "Erro ao atualizar o post."
+    destroy:
+      success: "Post excluído com sucesso!"
   comments:
     title: "Título"
+    create:
+      success: "Comentário adicionado com sucesso!"
+      failure: "Erro ao adicionar o comentário."

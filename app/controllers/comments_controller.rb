@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user if user_signed_in?
 
     if @comment.save
-      redirect_to @post, notice: "Comentário adicionado com sucesso!"
+      redirect_to @post, notice: t("comments.create.success")
     else
-      redirect_to @post, alert: "Erro ao adicionar o comentário."
+      redirect_to @post, alert: t("comments.create.failure")
     end
   end
 
