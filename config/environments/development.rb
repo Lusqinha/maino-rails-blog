@@ -68,6 +68,8 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
+  config.i18n.raise_on_missing_translations = true
+
   config.i18n.default_locale = :'pt_BR'
   config.i18n.available_locales = [ :'pt_BR', :en ]
 
