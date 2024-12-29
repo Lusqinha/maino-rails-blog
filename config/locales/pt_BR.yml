@@ -1,0 +1,18 @@
+pt_BR:
+  hello: "Olá"
+  posts:
+    title: "Título"
+    content: "Conteúdo"
+    new_post: "Criar Novo Post"
+    save: "Salvar"
+    edit_post: "Editar Post"
+    delete_post: "Excluir Post"
+    comments: "Comentários"
+    new_comment: "Novo Comentário"
+    submit_comment: "Comentar"
+    anonymous: "Anônimo"
+    logged_in_comment: "Você está logado e seu comentário será associado ao seu usuário."
+    anonymous_comment: "Você está deslogado e comentará como anônimo."
+    are_you_sure: "Você tem certeza?"
+  comments:
+    title: "Título"
