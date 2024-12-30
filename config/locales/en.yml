@@ -1,22 +1,29 @@
 en:
+  time:
+      formats:
+        short: "%m/%d/%Y %H:%M"
   home: "Home"
   errors:
     messages:
       blank: "can't be blank"
   posts:
-    posts: "Publicações"
+    posts: "Posts"
     title: "Title"
+    author: "Author"
+    date: "Date"
     content: "Content"
     new_post: "Create New Post"
     save: "Save"
     edit_post: "Edit Post"
+    back: "Back"
+    delete: "Delete"
     delete_post: "Delete Post"
     comments: "Comments"
     new_comment: "New Comment"
     submit_comment: "Submit Comment"
     logged_in_comment: "You are logged in and your comment will be associated with your user."
     anonymous_comment: "You are logged out and will comment as anonymous."
-    are_you_shure: "Are you sure?"
+    are_you_sure: "Are you sure?"
     create:
       success: "Post created successfully!"
       failure: "Error creating the post."

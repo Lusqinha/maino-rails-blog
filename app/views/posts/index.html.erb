@@ -1,7 +1,12 @@
 <h1><%= t('posts.posts') %></h1>
 
 <% @posts.each do |post| %>
-  <h2><%= link_to post.title, post %></h2>
+  <div class="post-preview" onclick="window.location='<%= post_path(post) %>'">
+    <h2><%= link_to post.title, post %></h2>
+    <p><%= t('posts.author') %>: <%= post.user.name %></p>
+    <p><%= t('posts.date') %>: <%= l(post.created_at, format: :short) %></p>
+    <p><%= truncate(post.content, length: 100) %></p>
+  </div>
 <% end %>
 
 <%= link_to t('posts.new_post'), new_post_path if user_signed_in? %>

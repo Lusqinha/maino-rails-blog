@@ -1,4 +1,7 @@
 pt_BR:
+  time:
+      formats:
+        short: "%d/%m/%Y %H:%M"
   home: "Início"
   errors:
     messages:
@@ -6,10 +9,14 @@ pt_BR:
   posts:
     posts: "Publicações"
     title: "Título"
+    author: "Autor"
+    date: "Data"
     content: "Conteúdo"
     new_post: "Criar Novo Post"
     save: "Salvar"
     edit_post: "Editar Post"
+    back: "Voltar"
+    delete: "Deletar"
     delete_post: "Excluir Post"
     comments: "Comentários"
     new_comment: "Novo Comentário"
@@ -28,6 +35,7 @@ pt_BR:
       success: "Post excluído com sucesso!"
   comments:
     title: "Título"
+    anonymous: "Anônimo"
     create:
       success: "Comentário adicionado com sucesso!"
       failure: "Erro ao adicionar o comentário."
