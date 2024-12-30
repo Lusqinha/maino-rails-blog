@@ -19,25 +19,50 @@
   </head>
 
   <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="navbar-user">
+          <%= link_to do %>
+            <%= image_tag("profile.svg", alt: "User", size: "40x35") %>
+          <% end %>
+          <div class="navbar-user-dropdown">
+            <% if user_signed_in? %>
+              <%= link_to t('posts.new_post'), new_post_path %>
+              <%# <%= link_to t('my_posts'), user_posts_path(current_user) %>
+              <%= link_to t('devise.registrations.edit.title', resource: ""), edit_user_registration_path %>
+              <%= button_to t('logout'), destroy_user_session_path, method: :delete %> 
+            <% else %>
+              <%= link_to t('login'), new_user_session_path %>
+              <%= link_to t('sign_up'), new_user_registration_path %>
+            <% end %>
+          </div>
+        </div>
 
-    <nav>
-      <%= link_to t('home'), root_path %>
-      <% if user_signed_in? %>
-        <%= link_to t('posts.new_post'), new_post_path %>
-        <%= button_to t('logout'), destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to t('login'), new_user_session_path %>
-        <%= link_to t('sign_up'), new_user_registration_path %>
-      <% end %>
-      <%= link_to "English", url_for(request.params.merge(locale: :en)) %>
-      <%= link_to "Português", url_for(request.params.merge(locale: :'pt_BR')) %>
-    </nav>
+        <%= link_to root_path do %>
+          <%= image_tag("logo.svg", alt: "Maino Rails Blog", size: "100x35") %>
+        <% end %>
 
+        <div class="navbar-langs">
+          <%= link_to url_for(request.params.merge(locale: :en)) do %>
+            <%= image_tag("en.svg", alt: "EN", size: "38x35") %>
+          <% end %>
+          /
+          <%= link_to url_for(request.params.merge(locale: :'pt_BR')) do %>
+            <%= image_tag("br.svg", alt: "PT-BR", size: "38x35") %>
+          <% end %>
+          
+        </div>
+      </nav>
+    </header>
     <% if notice %>
-      <p style="color: green"><%= notice %></p>
+      <p class="notice-sucess" onclick="this.style.display='none';" >
+        <%= notice %>
+      </p>
     <% end %>
     <% if alert %>
-      <p style="color: red"><%= alert %></p>
+      <p class="notice-error" onclick="this.style.display='none';" >
+        <%= alert %>
+      </p>
     <% end %>
 
     <%= yield %>

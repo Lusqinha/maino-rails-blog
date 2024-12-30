@@ -1,13 +1,31 @@
-<h1><%= t('posts.posts') %></h1>
+<h1 class="posts-title"><%= t('posts.posts') %></h1>
 
+<section class="posts">
 <% @posts.each do |post| %>
-  <div class="post-preview" onclick="window.location='<%= post_path(post) %>'">
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= t('posts.author') %>: <%= post.user.name %></p>
-    <p><%= t('posts.date') %>: <%= l(post.created_at, format: :short) %></p>
-    <p><%= truncate(post.content, length: 100) %></p>
+<div class="post" onclick="window.location='<%= post_path(post) %>'">
+  <div class="tools">
+    <div class="circle">
+      <span class="red box"></span>
+    </div>
+    <div class="circle">
+      <span class="yellow box"></span>
+    </div>
+    <div class="circle">
+      <span class="green box"></span>
+    </div>
   </div>
+  <div class="post-preview">
+    <h2 class="post-title" onclick="window.location='<%= post_path(post) %>'">
+      <span><%= post.user.name %></span>@<span>blograils.blog</span>:~$ <%= link_to post.title, post %>
+    </h2>
+    <div class="post-info">
+      <p class="date"><%= t('posts.date') %>: <%= l(post.created_at, format: :short) %></p>
+    </div>
+    <p class="content-preview"><%= truncate(post.content, length: 400) %></p>
+  </div>
+</div>
 <% end %>
+</section>
 
 <%= link_to t('posts.new_post'), new_post_path if user_signed_in? %>
 

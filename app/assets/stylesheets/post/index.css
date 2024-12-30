@@ -1,0 +1,110 @@
+.posts-title {
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.post{
+    width: 70%;
+    margin: 1rem auto;
+    background-color: #011522;
+    border-radius: 8px;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+    transition: 0.5s ease-in-out;
+}
+
+.post .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+}
+
+.post .tools .circle {
+    padding: 0 4px;
+}
+
+.circle:hover {
+    scale: 1.1;
+    transition: 0.1s ease-in-out;
+}
+
+.circle .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+.yellow {
+    background-color: #ffbd44;
+}
+
+.green {
+    background-color: #00ca4e;
+}
+
+.post-preview {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-preview .post-title {
+    margin: 0;
+    color: #ff605c;
+    cursor: pointer;
+    font-size: 2.2rem;
+}
+
+.post-preview .post-title span {
+    color:#00ca4e;
+}
+
+.post-preview .post-title a {
+    font-size: 2.2rem;
+    color: white;
+    margin: 0;
+    text-decoration: none;
+}
+
+.post-preview .post-title a:hover {
+    color: thistle;
+    text-decoration: none;
+}
+
+.post-preview .post-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post-preview .author,
+.post-preview .date {
+    margin: 0;
+    color: #ffbd44;
+    font-size: 0.9rem;
+}
+
+.content-preview {
+    margin: 1rem 0;
+    color: white;
+    font-size: 1.2rem;
+}
