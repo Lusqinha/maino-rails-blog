@@ -3,6 +3,16 @@ en:
       formats:
         short: "%m/%d/%Y %H:%M"
   home: "Home"
+  login: "Login"
+  sign_up: "Sign Up"
+  logout: "Logout"
+  views:
+    pagination:
+      first: "First"
+      last: "Last"
+      previous: "Previous"
+      next: "Next"
+      truncate: "..."
   errors:
     messages:
       blank: "can't be blank"
