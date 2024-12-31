@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Ysabeau Infant';
-    src: url('/app/assets/fonts/YsabeauInfant-Bold.woff2') format('woff2');
+    src: url('/fonts/YsabeauInfant-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
