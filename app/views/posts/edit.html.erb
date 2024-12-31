@@ -24,6 +24,11 @@
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= form.label :tags, t('posts.tags') %>
+    <%= form.text_field :tag_names, value: @post.tags.map(&:name).join(", ") %>
+  </div>
+
   <div class="actions">
     <%= form.submit t('posts.save') %>
   </div>

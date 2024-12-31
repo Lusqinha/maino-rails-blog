@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      @post.update_tags(params[:post][:tag_names])
       redirect_to @post, notice: t("posts.create.success")
     else
       render :new, alert: t("posts.create.failure")
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      @post.update_tags(params[:post][:tag_names])
       redirect_to @post, notice: t("posts.update.success")
     else
       render :edit, alert: t("posts.update.failure")
@@ -45,6 +47,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content)
   end
 end

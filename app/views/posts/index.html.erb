@@ -19,9 +19,17 @@
       <span><%= post.user.name %></span>@<span>blograils.blog</span>:~$ <%= link_to post.title, post %>
     </h2>
     <div class="post-info">
-      <p class="date"><%= t('posts.date') %>: <%= l(post.created_at, format: :short) %></p>
+      <p class="date">const <%= t('posts.date') %> = <%= l(post.created_at, format: :short) %></p>
     </div>
     <p class="content-preview"><%= truncate(post.content, length: 400) %></p>
+    <%# pra cada tag, cria um pequeno cardzinho %>
+    <div class="tags-preview">
+      <% post.tags.each do |tag| %>
+        <div class="tag-card">
+          <p><%= tag.name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <% end %>
