@@ -12,4 +12,9 @@ class Post < ApplicationRecord
       Tag.find_or_create_by(name: name.strip)
     end
   end
+
+  def self.tagged_with(name)
+    tag = Tag.find_by(name: name)
+    tag ? tag.posts : none
+  end
 end
