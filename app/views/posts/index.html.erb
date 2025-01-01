@@ -1,5 +1,32 @@
 <h1 class="posts-title"><%= t('posts.posts') %></h1>
 
+<section class="search">
+  <div class="tag-filter">
+    <%= form_with url: posts_path, method: :get, local: true do %>
+      <div class="field">
+        <%= label_tag :tag, t("posts.tags") %>
+        <select class="input-select" onfocus="this.size=5;" onblur="this.size=1;"onchange="this.size=1; this.blur();window.location.href='<%= posts_path %>?tag=' + this.value">
+          <option value=""></option>
+          <% @tags.each do |tag| %>
+            <option value="<%= tag %>" <%= 'selected' if params[:tag] == tag %>><%= tag %></option>
+          <% end %>
+        </select>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-bar">
+    <%= form_with url: posts_path, method: :get, local: true do %>
+      <div class="search-field">
+        <div class="field">
+          <%= label_tag :tag, t("posts.tags") %>
+          <%= text_field_tag :tag, params[:tag], class: "input-text" %>
+        </div>
+        <%= submit_tag t("posts.search"), class: "submit-search" %>
+      </div>
+    <% end %>
+  </div>
+
+</section>
 <section class="posts">
 <% @posts.each do |post| %>
 <div class="post" onclick="window.location='<%= post_path(post) %>'">
@@ -21,8 +48,7 @@
     <div class="post-info">
       <p class="date">const <%= t('posts.date') %> = <%= l(post.created_at, format: :short) %></p>
     </div>
-    <p class="content-preview"><%= truncate(post.content, length: 400) %></p>
-    <%# pra cada tag, cria um pequeno cardzinho %>
+    <p class="content-preview"><%= truncate(post.content, length: 400) %></p> 
     <div class="tags-preview">
       <% post.tags.each do |tag| %>
         <div class="tag-card">
@@ -34,7 +60,4 @@
 </div>
 <% end %>
 </section>
-
-<%= link_to t('posts.new_post'), new_post_path if user_signed_in? %>
-
 <p><%= paginate @posts %></p>

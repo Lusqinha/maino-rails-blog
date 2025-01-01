@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @tags = Tag.all.pluck(:name)
     if params[:tag].present?
       @posts = Post.tagged_with(params[:tag]).order(created_at: :desc).page(params[:page]).per(3)
     else

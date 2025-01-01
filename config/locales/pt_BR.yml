@@ -17,10 +17,15 @@ pt_BR:
     messages:
       blank: "Não pode ser vazio"
   posts:
-    posts: "Publicações"
+    posts: "Postagens"
+    search_tag: "Buscar tags"
+    search: "Buscar"
+    search_results: "Resultados da Pesquisa"
+    filter: "Filtrar"
     title: "Título"
     author: "Autor"
     date: "Data"
+    tags: "Tags"
     content: "Conteúdo"
     new_post: "Criar Novo Post"
     save: "Salvar"

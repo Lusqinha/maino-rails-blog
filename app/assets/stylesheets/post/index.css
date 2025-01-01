@@ -1,6 +1,71 @@
+
+/* --- Search Input --- */
+
+.search {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: min-content;
+}
+
+.search .field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.search-bar .search-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.search-field .submit-search{
+    background-color: #011522;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    cursor: pointer;
+    height: min-content;
+    align-self: self-end;
+}
+
+.search .input-select{
+    background-color: #011522;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    z-index: 10;
+    padding: 0.5rem;
+    width: 300px !important;
+}
+
+.search .input-select option{
+    background-color: #011522;
+    color: white;
+}
+
+.search .input-text {
+    background-color: #011522;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border:none;
+}
+
+/* --- Post Card --- */
+
 .posts-title {
     font-size: 2rem;
-    margin: 1rem 0;
     text-align: center;
 }
 
@@ -10,6 +75,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0rem 0;
 
 }
 
