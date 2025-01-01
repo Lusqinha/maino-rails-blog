@@ -9,6 +9,10 @@
     <%= f.label :content, t('posts.content') %>
     <%= f.text_area :content %>
   </div>
+  <div class="field">
+    <%= f.label :tags, t('posts.tags') %>
+    <%= f.text_field :tag_names, value: @post.tags.map(&:name).join(", ") %>
+  </div>
   <div class="actions">
     <%= f.submit t('posts.save') %>
   </div>

@@ -1,6 +1,10 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
 
+<p><%= t('posts.author') %>: <%= @post.user.name %></p>
+<p><%= t('posts.date') %>: <%= l(@post.created_at, format: :short) %></p>
+<p><%= t('posts.tags') %>: <%= @post.tags.map(&:name).join(", ") %></p>
+
 <h2><%= t('posts.comments') %></h2>
 <%= render @post.comments %>
 
@@ -21,3 +25,4 @@
 <% end %>
 
 <%= link_to t('posts.edit_post'), edit_post_path(@post) if current_user == @post.user %>
+<%= link_to t('posts.back'), posts_path %>
