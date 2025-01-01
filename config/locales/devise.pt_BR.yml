@@ -1,4 +1,13 @@
 pt_BR:
+  i18n:
+    plural:
+      keys:
+        - one
+        - other
+      rule: |
+        lambda do |n|
+          n == 1 ? :one : :other
+        end
   activerecord:
     attributes:
       user:
