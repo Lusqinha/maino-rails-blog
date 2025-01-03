@@ -43,10 +43,10 @@
   </div>
   <div class="post-preview">
     <h2 class="post-title" onclick="window.location='<%= post_path(post) %>'">
-      <span><%= post.user.name %></span>@<span>blograils.blog</span>:~$ <%= link_to post.title, post %>
+      <span class="post-author"><%= post.user.name %></span>@<span>blograils.blog</span>:~$ <span class="post-title-content"><%= link_to post.title, post %></span>
     </h2>
     <div class="post-info">
-      <p class="date">const <%= t('posts.date') %> = <%= l(post.created_at, format: :short) %></p>
+      <p class="date"><%= t('posts.date') %>:<%= l(post.created_at, format: :short) %></p>
     </div>
     <p class="content-preview"><%= truncate(post.content, length: 400) %></p> 
     <div class="tags-preview">
