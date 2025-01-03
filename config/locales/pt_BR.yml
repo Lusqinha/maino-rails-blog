@@ -1,4 +1,21 @@
 pt_BR:
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+            content:
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+  errors:
+    messages:
+      too_short: "é muito curto (mínimo de %{count} caracteres)"
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
   time:
       formats:
         short: "%d/%m/%Y %H:%M"
@@ -42,6 +59,7 @@ pt_BR:
     create:
       success: "Post criado com sucesso!"
       failure: "Erro ao criar o post."
+    prohibited_from_being_saved: "não pode ser salvo"
     update:
       success: "Post atualizado com sucesso!"
       failure: "Erro ao atualizar o post."

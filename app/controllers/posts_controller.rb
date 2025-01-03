@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       @post.update_tags(params[:post][:tag_names])
       redirect_to @post, notice: t("posts.create.success")
     else
-      render :new, alert: t("posts.create.failure")
+      render :new, alert: t("posts.create.failure"), status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       @post.update_tags(params[:post][:tag_names])
       redirect_to @post, notice: t("posts.update.success")
     else
-      render :edit, alert: t("posts.update.failure")
+      render :edit, alert: t("posts.update.failure"), status: :unprocessable_entity
     end
   end
 

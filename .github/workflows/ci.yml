@@ -35,6 +35,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Set execute permissions for bin/importmap
+        run: chmod +x bin/importmap
+
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
@@ -83,7 +86,13 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_TEST_URL: ${{ secrets.DATABASE_TEST_URL }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_TEST_NAME: ${{ secrets.DB_TEST_NAME }}
+          DB_SSLMODE: ${{ secrets.DB_SSLMODE }}
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
