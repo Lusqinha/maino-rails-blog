@@ -34,7 +34,10 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
+          
+      - name: Set execute permissions for bin/importmap
+        run: chmod +x bin/importmap
+        
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
