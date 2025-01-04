@@ -1,7 +1,7 @@
 en:
   time:
       formats:
-        short: "%m/%d/%Y %H:%M"
+        short: "%d/%m/%Y, %Hh%Mmin"
   home: "Home"
   login: "Login"
   sign_up: "Sign Up"
@@ -39,6 +39,14 @@ en:
     logged_in_comment: "You are logged in and your comment will be associated with your user."
     anonymous_comment: "You are logged out and will comment as anonymous."
     are_you_sure: "Are you sure?"
+    upload:
+      file: "Upload file"
+      file_label: "Select a TXT file"
+      title: "Upload"
+      success: "File uploaded successfully!"
+      failure: "Error uploading the file."
+      invalid: "Invalid file format, only TXT files are allowed."
+      file_too_large: "File is too large, maximum size is %{max_size} bytes."
     create:
       success: "Post created successfully!"
       failure: "Error creating the post."

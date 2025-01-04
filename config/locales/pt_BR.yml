@@ -18,7 +18,7 @@ pt_BR:
       last_word_connector: " e "
   time:
       formats:
-        short: "%d/%m/%Y %H:%M"
+        short: "%d/%m/%Y, %Hh%Mmin"
   home: "Início"
   login: "Entrar"
   sign_up: "Cadastrar"
@@ -56,6 +56,13 @@ pt_BR:
     logged_in_comment: "Você está logado e seu comentário será associado ao seu usuário."
     anonymous_comment: "Você está deslogado e comentará como anônimo."
     are_you_sure: "Você tem certeza?"
+    upload:
+      file: "Upload de Arquivo"
+      file_label: "Selecione um arquivo TXT"
+      title: "Upload"
+      success: "Arquivo enviado com sucesso!"
+      failure: "Erro ao enviar o arquivo, por favor, verifique-o e tente novamente."
+      file_too_large: "Arquivo muito grande, o tamanho máximo é de %{max_size} bytes."
     create:
       success: "Post criado com sucesso!"
       failure: "Erro ao criar o post."
