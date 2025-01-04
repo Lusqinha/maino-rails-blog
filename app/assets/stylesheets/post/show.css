@@ -1,0 +1,59 @@
+.post-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 80svw;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+}
+
+.post-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+#post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem;
+    color: #ff605c;
+}
+
+#post-date {
+    font-size: 1.2rem;
+    color: #00ca4e;
+    font-style: italic;
+    margin: 0;
+}
+
+#post-author{
+    font-size: 1.2rem;
+    color: #ffbd44;
+    font-style: italic;
+    margin: 0;
+}
+
+#post-text {
+    text-align: justify;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+#post-tags{
+    background-color: #2D2D2D;
+    color: #00ca4e;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+

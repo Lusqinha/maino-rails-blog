@@ -1,28 +1,62 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
 
-<p><%= t('posts.author') %>: <%= @post.user.name %></p>
-<p><%= t('posts.date') %>: <%= l(@post.created_at, format: :short) %></p>
-<p><%= t('posts.tags') %>: <%= @post.tags.map(&:name).join(", ") %></p>
 
-<h2><%= t('posts.comments') %></h2>
-<%= render @post.comments %>
+<section class="post-page-content">
+  <div class="post-actions">
+    <% if user_signed_in? && current_user == @post.user %>
+      <%= link_to edit_post_path(@post) do %>
+        <%= image_tag('edit.svg', alt: t('posts.edit_post'), size: "30x30") %>
+      <%end%>
 
-<%= form_with model: [@post, @comment], local: true do |f| %>
-  <div class="field">
-    <%= f.label :content, t('posts.new_comment') %>
-    <%= f.text_area :content %>
+    <% end %>
+    <%= link_to posts_path do %>
+      <%= image_tag('back.svg', alt: t('posts.back'), size: "30x30") %>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit t('posts.submit_comment') %>
-  </div>
-<% end %>
+  <div class="post">
+    <div class="tools">
+      <div class="circle">
+        <span class="red box"></span>
+      </div>
+      <div class="circle">
+        <span class="yellow box"></span>
+      </div>
+      <div class="circle">
+        <span class="green box"></span>
+      </div>
+    </div>
+    <div class="post-preview">
+        <h1 id="post-title"><%= @post.title %></h1>
+        <p id="post-date"><%= l(@post.created_at, format: :short) %></p>
+        <p id="post-author"><%= t('posts.author') %>: <%= @post.user.name %></p>
 
-<% if user_signed_in? %>
-  <p><%= t('posts.logged_in_comment') %></p>
-<% else %>
-  <p><%= t('posts.anonymous_comment') %></p>
-<% end %>
+        <p id="post-text"><%= @post.content %></p>
+    </div>
+</div>
+    <p id="post-tags">
+      <% @post.tags.each do |tag| %>
+        <span class="tag-card"> | <%= tag.name %> |</span>
+      <% end %>
+    </p>
+</section>
 
-<%= link_to t('posts.edit_post'), edit_post_path(@post) if current_user == @post.user %>
-<%= link_to t('posts.back'), posts_path %>
+<section class="comments-section">
+  <h2><%= t('posts.comments') %></h2>
+  <%= render @post.comments %>
+  <section class="new-comment">
+    <%= form_with model: [@post, @comment], local: true do |f| %>
+      <div class="field">
+        <%= f.label :content, t('posts.new_comment') %>
+        <%= f.text_area :content %>
+      </div>
+      <div class="actions">
+        <%= f.submit t('posts.submit_comment') %>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <p><%= t('posts.logged_in_comment') %></p>
+    <% else %>
+      <p><%= t('posts.anonymous_comment') %></p>
+    <% end %>
+  </section>
+</section>
