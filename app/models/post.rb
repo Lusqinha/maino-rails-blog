@@ -17,4 +17,29 @@ class Post < ApplicationRecord
     tag = Tag.find_by(name: name)
     tag ? tag.posts : Post.none
   end
+
+  def self.upload_content_valid?(content_text)
+    return false if content_text.blank?
+
+    posts = content_text.split(">")
+    posts.each do |post|
+      title, content, = post.split("|")
+
+      return false if title.blank?
+      return false if content.blank?
+    end
+    true
+  end
+
+  def self.create_from_upload_content(content_text, user_id)
+    user = User.find(user_id)
+
+    posts = content_text.split(">")
+    posts.each do |post|
+      title, content, tags = post.split("|")
+
+      post = Post.new(title: title, content: content, user: user)
+      post.update_tags(tags)
+    end
+  end
 end

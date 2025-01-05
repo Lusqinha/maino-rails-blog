@@ -31,6 +31,21 @@ class PostsController < ApplicationController
 
   def edit; end
 
+  def upload
+    file = params[:file]
+    redirect_to new_post_path, alert: t("posts.upload.failure") if file.blank?
+    redirect_to new_post_path, alert: t("posts.upload.invalid_format") unless file.content_type = "text/plain"
+
+    file_text = file.read
+    puts file_text
+    if Post.upload_content_valid?(file_text)
+      CreatePostsFromFileContentJob.perform_async(file_text, current_user.id)
+      redirect_to posts_path, notice: t("posts.upload.success")
+    else
+      redirect_to new_post_path, alert: t("posts.upload.invalid")
+    end
+  end
+
   def update
     if @post.update(post_params)
       @post.update_tags(params[:post][:tag_names])
