@@ -34,11 +34,12 @@ class PostsController < ApplicationController
   def upload
     file = params[:file]
     redirect_to new_post_path, alert: t("posts.upload.failure") if file.blank?
-    redirect_to new_post_path, alert: t("posts.upload.invalid_format") unless file.content_type = "text/plain"
+    redirect_to new_post_path, alert: t("posts.upload.invalid_format") unless file.content_type == "text/plain"
 
     file_text = file.read
     puts file_text
     if Post.upload_content_valid?(file_text)
+      puts "POST VALIDADO"
       CreatePostsFromFileContentJob.perform_async(file_text, current_user.id)
       redirect_to posts_path, notice: t("posts.upload.success")
     else

@@ -21,12 +21,11 @@ class Post < ApplicationRecord
   def self.upload_content_valid?(content_text)
     return false if content_text.blank?
 
-    posts = content_text.split(">")
+    posts = content_text.split("---")
     posts.each do |post|
-      title, content, = post.split("|")
+      title, content = post.split("#")
 
-      return false if title.blank?
-      return false if content.blank?
+      return false if title.blank? || content.blank?
     end
     true
   end
@@ -34,12 +33,14 @@ class Post < ApplicationRecord
   def self.create_from_upload_content(content_text, user_id)
     user = User.find(user_id)
 
-    posts = content_text.split(">")
+    posts = content_text.split("---")
     posts.each do |post|
-      title, content, tags = post.split("|")
+      title, content, tags = post.split("#")
 
       post = Post.new(title: title, content: content, user: user)
-      post.update_tags(tags)
+      if post.save
+        post.update_tags(tags)
+      end
     end
   end
 end
