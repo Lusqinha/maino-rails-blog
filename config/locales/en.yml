@@ -45,7 +45,8 @@ en:
       title: "Upload"
       success: "File uploaded successfully!"
       failure: "Error uploading the file."
-      invalid: "Invalid file format, only TXT files are allowed."
+      invalid: "Invalid file content."
+      invalid_format: "Invalid file format, only TXT files are allowed."
       file_too_large: "File is too large, maximum size is %{max_size} bytes."
     create:
       success: "Post created successfully!"
