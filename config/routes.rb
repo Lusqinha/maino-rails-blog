@@ -6,9 +6,10 @@ Rails.application.routes.draw do
       passwords: "users/passwords"
     }
 
-    get "up" => "rails/health#show", as: :rails_health_check
-
     root "posts#index"
+
+    post "posts/upload", to: "posts#upload"
+
     resources :posts do
       resources :comments, only: [ :create ]
     end
