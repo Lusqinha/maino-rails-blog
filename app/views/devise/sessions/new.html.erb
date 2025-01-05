@@ -1,26 +1,30 @@
-<h2><%= t("devise.sessions.new.sign_in", default: "Log in") %></h2>
+<div class="auth-container">
+  <h2 class="auth-header"><%= t("devise.sessions.new.sign_in", default: "Log in") %></h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, t("activerecord.attributes.user.email", default: "Email") %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, t("activerecord.attributes.user.password", default: "Password") %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, t("activerecord.attributes.user.remember_me", default: "Remember me") %>
+      <%= f.label :email, t("activerecord.attributes.user.email", default: "Email") %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, t("activerecord.attributes.user.password", default: "Password") %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, t("activerecord.attributes.user.remember_me", default: "Remember me") %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit t("devise.sessions.new.sign_in", default: "Log in") %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit t("devise.sessions.new.sign_in", default: "Log in") %>
+  <div class="devise-links">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
