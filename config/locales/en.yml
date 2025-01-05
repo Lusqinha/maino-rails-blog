@@ -43,6 +43,8 @@ en:
       file: "Upload file"
       file_label: "Select a TXT file"
       title: "Upload"
+      title_file_model: "File model"
+      file_model: "example title#example content#tag1, tag2"
       success: "File uploaded successfully!"
       failure: "Error uploading the file."
       invalid: "Invalid file content."

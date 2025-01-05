@@ -22,8 +22,14 @@
   </div>
 
   <div class="upload-section">
+    <span class="upload-title"><%= t('posts.upload.title_file_model') %></span>
+    <pre>
+      <%= t('posts.upload.file_model') %>
+      ---
+      <%= t('posts.upload.file_model') %>
+    </pre>
     <%= form_with url: posts_upload_path do |f| %>
-      <%= f.file_field :file, accept: '.txt', class: 'upload-file' %>
+      <%= f.file_field :file, accept: '.txt', class: 'upload-field' %>
       <%= f.label :file, t('posts.upload.file') %>
       <%= f.submit t('posts.upload.title'), hidden: true, class: 'upload-submit' %>
     <% end %>
@@ -31,7 +37,6 @@
 </div>
 
 <script>
-  document.querySelector('.upload-file').addEventListener('change', function() {
-    document.querySelector('.upload-submit').click();
-  });
+  document.querySelector('.upload-field').addEventListener('change', function() {
+  document.querySelector('.upload-submit').click();});
 </script>

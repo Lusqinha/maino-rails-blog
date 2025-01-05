@@ -60,6 +60,8 @@ pt_BR:
       file: "Upload de Arquivo"
       file_label: "Selecione um arquivo TXT"
       title: "Upload"
+      title_file_model: "Modelo de Arquivo"
+      file_model: "exemplo titulo#exemplo conteúdo#tag1, tag2"
       success: "Arquivo enviado com sucesso!"
       failure: "Erro ao enviar o arquivo, por favor, verifique-o e tente novamente."
       invalid: "Erro ao enviar o arquivo, conteúdo inválido!"

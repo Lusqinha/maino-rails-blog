@@ -66,13 +66,22 @@
     background: #45a049;
 }
 
-/* Estilização para Upload */
 .upload-section {
     margin-top: 20px;
     text-align: center;
 }
 
-.upload-file {
+.upload-section pre{
+    text-align: left;
+    color: #333;
+    background-color: #ccc;
+    width: 35%;
+    margin: 1rem auto;
+    border-radius: 10px;
+    padding-top: 1rem;   
+}
+
+.upload-field {
     display: block;
     margin: 0 auto 10px;
 }
@@ -81,7 +90,7 @@
     display: none;
 }
 
-.upload-file+label {
+.upload-field+label {
     display: inline-block;
     background: #2196F3;
     color: #fff;
@@ -91,6 +100,6 @@
     font-size: 14px;
 }
 
-.upload-file+label:hover {
+.upload-field+label:hover {
     background: #1e88e5;
 }
