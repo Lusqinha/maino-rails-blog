@@ -38,6 +38,20 @@ pt_BR:
       user:
         one: Usuário
         other: Usuários
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+              taken: "já está em uso"
+            content:
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
+        tag:
+          taken: "já está em uso"
+      messages:
+        too_short: "é muito curto (mínimo de %{count} caracteres)"
+        record_invalid: "A validação falhou: %{errors}"
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.

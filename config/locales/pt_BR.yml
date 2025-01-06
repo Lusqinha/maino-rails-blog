@@ -1,24 +1,17 @@
 pt_BR:
-  activerecord:
-    errors:
-      models:
-        post:
-          attributes:
-            title:
-              too_short: "é muito curto (mínimo de %{count} caracteres)"
-            content:
-              too_short: "é muito curto (mínimo de %{count} caracteres)"
   errors:
     messages:
       too_short: "é muito curto (mínimo de %{count} caracteres)"
+      record_invalid: "A validação falhou: %{errors}"
+      blank: "Não pode ser vazio"
   support:
     array:
       words_connector: ", "
       two_words_connector: " e "
       last_word_connector: " e "
   time:
-      formats:
-        short: "%d/%m/%Y, %Hh%Mmin"
+    formats:
+      short: "%d/%m/%Y, %Hh%Mmin"
   home: "Início"
   login: "Entrar"
   sign_up: "Cadastrar"
@@ -30,9 +23,6 @@ pt_BR:
       previous: "Anterior"
       next: "Próxima"
       truncate: "..."
-  errors:
-    messages:
-      blank: "Não pode ser vazio"
   posts:
     posts: "Postagens"
     search_tag: "Buscar tags"
