@@ -82,8 +82,7 @@
 }
 
 .upload-field {
-    display: block;
-    margin: 0 auto 10px;
+    display: none
 }
 
 .upload-submit {
