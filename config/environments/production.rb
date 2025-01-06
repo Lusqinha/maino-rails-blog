@@ -40,6 +40,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
   config.i18n.default_locale = :'pt_BR'
   config.i18n.available_locales = [ :'pt_BR', :en ]
+  config.time_zone= "Brasilia"
 
   config.active_record.dump_schema_after_migration = false
   config.active_record.attributes_for_inspect = [ :id ]
