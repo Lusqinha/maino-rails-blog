@@ -36,14 +36,14 @@ class Post < ApplicationRecord
     posts.each do |post|
       title, content = post.split("#")
 
-      return false if title.blank? || content.blank?
-      return false if title.length < MIN_TITLE_LENGTH || content.length < MIN_CONTENT_LENGTH
-      return false if already_exists?(title, content)
+      return false unless validate_content(title, content)
     end
     true
   end
 
-
+  def self.already_exists?(title, content)
+    Post.where(title: title, content: content).exists?
+  end
 
   def self.create_from_upload_content(content_text, user_id)
     user = User.find(user_id)
@@ -64,7 +64,10 @@ class Post < ApplicationRecord
 
   private
 
-    def self.already_exists?(title, content)
-      Post.where(title: title, content: content).exists?
-    end
+  def self.validate_content(title, content)
+    return false if title.blank? || content.blank?
+    return false if already_exists?(title, content)
+    return false if title.length < MIN_TITLE_LENGTH || content.length < MIN_CONTENT_LENGTH
+    true
+  end
 end
