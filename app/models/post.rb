@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   validates :content, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: 10 }
 
   def update_tags(tag_names)
+    post_tags.destroy_all
     return if tag_names.blank?
 
     tag_names = tag_names.split(",").map(&:strip).uniq
