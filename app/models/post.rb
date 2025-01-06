@@ -1,11 +1,14 @@
 class Post < ApplicationRecord
+  MIN_TITLE_LENGTH = 5
+  MIN_CONTENT_LENGTH = 10
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
-  validates :title, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: 5 }
-  validates :content, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: 10 }
+  validates :title, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: MIN_TITLE_LENGTH }
+  validates :content, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: MIN_CONTENT_LENGTH }
 
   def update_tags(tag_names)
     post_tags.destroy_all
@@ -34,14 +37,13 @@ class Post < ApplicationRecord
       title, content = post.split("#")
 
       return false if title.blank? || content.blank?
+      return false if title.length < MIN_TITLE_LENGTH || content.length < MIN_CONTENT_LENGTH
       return false if already_exists?(title, content)
     end
     true
   end
 
-  def self.already_exists?(title, content)
-    Post.where(title: title, content: content).exists?
-  end
+
 
   def self.create_from_upload_content(content_text, user_id)
     user = User.find(user_id)
@@ -59,4 +61,10 @@ class Post < ApplicationRecord
     end
     true
   end
+
+  private
+
+    def self.already_exists?(title, content)
+      Post.where(title: title, content: content).exists?
+    end
 end
