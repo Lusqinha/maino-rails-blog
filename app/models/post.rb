@@ -8,8 +8,14 @@ class Post < ApplicationRecord
   validates :content, presence: { message: I18n.t("errors.messages.blank") }, length: { minimum: 10 }
 
   def update_tags(tag_names)
-    self.tags = tag_names.to_s.split(",").map do |name|
-      Tag.find_or_create_by(name: name.strip)
+    return if tag_names.blank?
+
+    tag_names = tag_names.split(",").map(&:strip).uniq
+
+    tag_names.each do |tag_name|
+      tag = Tag.find_or_create_by(name: tag_name.downcase)
+      puts(tag.errors.full_messages) if tag.errors.any?
+      tags << tag
     end
   end
 
@@ -26,8 +32,13 @@ class Post < ApplicationRecord
       title, content = post.split("#")
 
       return false if title.blank? || content.blank?
+      return false if already_exists?(title, content)
     end
     true
+  end
+
+  def self.already_exists?(title, content)
+    Post.where(title: title, content: content).exists?
   end
 
   def self.create_from_upload_content(content_text, user_id)
@@ -37,7 +48,7 @@ class Post < ApplicationRecord
     posts.each do |post|
       title, content, tags = post.split("#")
 
-      post = Post.new(title: title, content: content, user: user)
+      post = user.posts.build(title: title, content: content)
       if post.save
         post.update_tags(tags)
       end
