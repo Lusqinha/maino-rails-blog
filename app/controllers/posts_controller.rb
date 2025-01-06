@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @tags = Tag.all.pluck(:name)
     if params[:tag].present?
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc).page(params[:page]).per(3)
+      @posts = Post.find_by_tag_name(params[:tag]).order(created_at: :desc).page(params[:page]).per(3)
     else
       @posts = Post.order(created_at: :desc).page(params[:page]).per(3)
     end

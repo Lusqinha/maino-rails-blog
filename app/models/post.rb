@@ -20,7 +20,7 @@ class Post < ApplicationRecord
     end
   end
 
-  def self.tagged_with(name)
+  def self.find_by_tag_name(name)
     tag = Tag.find_by(name: name)
     tag ? tag.posts : Post.none
   end
@@ -29,6 +29,7 @@ class Post < ApplicationRecord
     return false if content_text.blank?
 
     posts = content_text.split("---")
+
     posts.each do |post|
       title, content = post.split("#")
 
@@ -46,13 +47,16 @@ class Post < ApplicationRecord
     user = User.find(user_id)
 
     posts = content_text.split("---")
+
     posts.each do |post|
       title, content, tags = post.split("#")
 
       post = user.posts.build(title: title, content: content)
+
       if post.save
         post.update_tags(tags)
       end
     end
+    true
   end
 end
