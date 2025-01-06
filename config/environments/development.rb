@@ -48,6 +48,7 @@ Rails.application.configure do
   config.i18n.raise_on_missing_translations = true
   config.i18n.default_locale = :'pt_BR'
   config.i18n.available_locales = [ :'pt_BR', :en ]
+  config.time_zone= "Brasilia"
 
   config.action_view.annotate_rendered_view_with_filenames = true
 
