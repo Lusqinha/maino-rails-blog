@@ -72,8 +72,8 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "should validate upload content" do
-    valid_content = "Title#Content---Another Title#Another Content"
-    invalid_content = "Title#Content---#No Title"
+    valid_content = "Title post example#valid Content example---Another Title#Another Content#sml"
+    invalid_content = "sml#sml#sml"
     assert Post.upload_content_valid?(valid_content), "Valid content was not recognized"
     assert_not Post.upload_content_valid?(invalid_content), "Invalid content was not recognized"
   end
