@@ -29,7 +29,6 @@
           <div class="navbar-user-dropdown">
             <% if user_signed_in? %>
               <%= link_to t('posts.new_post'), new_post_path %>
-              <%# <%= link_to t('my_posts'), user_posts_path(current_user) %>
               <%= link_to t('devise.registrations.edit.title', resource: t('activerecord.models.user.one') ), edit_user_registration_path %>
               <%= button_to t('logout'), destroy_user_session_path, method: :delete %> 
             <% else %>
@@ -40,7 +39,7 @@
         </div>
 
         <%= link_to root_path do %>
-          <%= image_tag("logo.svg", alt: "Maino Rails Blog", size: "100x35") %>
+          <%= image_tag("logo.svg", alt: "Maino Rails Blog", size: "150x75") %>
         <% end %>
 
         <div class="navbar-langs">
