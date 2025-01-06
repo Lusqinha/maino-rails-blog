@@ -29,6 +29,20 @@ en:
       user:
         one: User
         other: Users
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              too_short: "Is too short (%{count} charcters)"
+              taken: "has already been taken"
+            content:
+              too_short: "Is too short (%{count} charcters)"
+        tag:
+          taken: "has already been taken"
+      messages:
+        too_short: "Is too short (%{count} charcters)"
+        record_invalid: "Validation failed: %{errors}"
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.

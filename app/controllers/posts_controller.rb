@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @tags = Tag.all.pluck(:name)
     if params[:tag].present?
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc).page(params[:page]).per(3)
+      @posts = Post.find_by_tag_name(params[:tag]).order(created_at: :desc).page(params[:page]).per(3)
     else
       @posts = Post.order(created_at: :desc).page(params[:page]).per(3)
     end
@@ -30,6 +30,21 @@ class PostsController < ApplicationController
   end
 
   def edit; end
+
+  def upload
+    file = params[:file]
+    redirect_to new_post_path, alert: t("posts.upload.failure") if file.blank?
+    redirect_to new_post_path, alert: t("posts.upload.invalid_format") unless file.content_type == "text/plain"
+
+    file_text = file.read
+
+    if Post.upload_content_valid?(file_text)
+      CreatePostsFromFileContentJob.perform_async(file_text, current_user.id)
+      redirect_to posts_path, notice: t("posts.upload.success")
+    else
+      redirect_to new_post_path, alert: t("posts.upload.invalid")
+    end
+  end
 
   def update
     if @post.update(post_params)

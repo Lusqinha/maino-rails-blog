@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin: 0;
 }
 
 .search-bar .search-field{
@@ -127,7 +128,7 @@
 }
 
 .post-preview {
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
 }

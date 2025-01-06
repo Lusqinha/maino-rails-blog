@@ -33,9 +33,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-<<<<<<< HEAD
 /coverage/
-=======
-# Ignore test coverage reports.
-/coverage/
->>>>>>> 9b3395e2b40c3082ed600a7ec43efb38a5839b9f

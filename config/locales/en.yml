@@ -1,7 +1,12 @@
 en:
+  errors:
+    messages:
+      too_short: "é muito curto (mínimo de %{count} caracteres)"
+      record_invalid: "A validação falhou: %{errors}"
+      blank: "can't be blank"
   time:
-      formats:
-        short: "%m/%d/%Y %H:%M"
+    formats:
+      short: "%d/%m/%Y, %Hh%Mmin"
   home: "Home"
   login: "Login"
   sign_up: "Sign Up"
@@ -13,9 +18,6 @@ en:
       previous: "Previous"
       next: "Next"
       truncate: "..."
-  errors:
-    messages:
-      blank: "can't be blank"
   posts:
     posts: "Posts"
     search_tag: "Tag search"
@@ -39,16 +41,34 @@ en:
     logged_in_comment: "You are logged in and your comment will be associated with your user."
     anonymous_comment: "You are logged out and will comment as anonymous."
     are_you_sure: "Are you sure?"
+    upload:
+      file: "Upload file"
+      file_label: "Select a TXT file"
+      title: "Upload"
+      title_file_model: "File model"
+      file_model: "example title#example content#tag1, tag2"
+      success: "File uploaded successfully!"
+      failure: "Error uploading the file."
+      invalid: "Invalid file content."
+      invalid_format: "Invalid file format, only TXT files are allowed."
+      file_too_large: "File is too large, maximum size is %{max_size} bytes."
     create:
       success: "Post created successfully!"
       failure: "Error creating the post."
+    prohibited_from_being_saved: "cannot be saved"
     update:
       success: "Post updated successfully!"
       failure: "Error updating the post."
     destroy:
       success: "Post deleted successfully!"
   comments:
+    title: "Title"
     anonymous: "Anonymous"
     create:
       success: "Comment added successfully!"
       failure: "Error adding the comment."
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: " and "

@@ -1,19 +1,42 @@
-<h1><%= t('posts.new_post') %></h1>
+<div class="view-container">
+  <h1 class="view-header"><%= t('posts.new_post') %></h1>
 
-<%= form_with model: @post, local: true do |f| %>
-  <div class="field">
-    <%= f.label :title, t('posts.title') %>
-    <%= f.text_field :title %>
+  <div class="view-form">
+    <%= form_with model: @post, local: true do |f| %>
+      <div class="field">
+        <%= f.label :title, t('posts.title') %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :content, t('posts.content') %>
+        <%= f.text_area :content %>
+      </div>
+      <div class="field">
+        <%= f.label :tags, t('posts.tags') %>
+        <%= f.text_field :tag_names, value: @post.tags.map(&:name).join(", ") %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit t('posts.save') %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :content, t('posts.content') %>
-    <%= f.text_area :content %>
+
+  <div class="upload-section">
+    <span class="upload-title"><%= t('posts.upload.title_file_model') %></span>
+    <pre>
+      <%= t('posts.upload.file_model') %>
+      ---
+      <%= t('posts.upload.file_model') %>
+    </pre>
+    <%= form_with url: posts_upload_path do |f| %>
+      <%= f.file_field :file, accept: '.txt', class: 'upload-field' %>
+      <%= f.label :file, t('posts.upload.file') %>
+      <%= f.submit t('posts.upload.title'), hidden: true, class: 'upload-submit' %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :tags, t('posts.tags') %>
-    <%= f.text_field :tag_names, value: @post.tags.map(&:name).join(", ") %>
-  </div>
-  <div class="actions">
-    <%= f.submit t('posts.save') %>
-  </div>
-<% end %>
+</div>
+
+<script>
+  document.querySelector('.upload-field').addEventListener('change', function() {
+  document.querySelector('.upload-submit').click();});
+</script>

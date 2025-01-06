@@ -46,7 +46,7 @@
       <span><%= post.user.name %></span>@<span>blograils.blog</span>:~$ <%= link_to post.title, post %>
     </h2>
     <div class="post-info">
-      <p class="date">const <%= t('posts.date') %> = <%= l(post.created_at, format: :short) %></p>
+      <p class="date"><%= l(post.created_at, format: :short) %></p>
     </div>
     <p class="content-preview"><%= truncate(post.content, length: 400) %></p> 
     <div class="tags-preview">
