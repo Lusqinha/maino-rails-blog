@@ -34,3 +34,6 @@
 /config/master.key
 
 /coverage/
+
+.bundler/
+.tool-versions
