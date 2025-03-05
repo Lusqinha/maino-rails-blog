@@ -11,7 +11,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "devise"
 gem "kaminari"
-gem "sidekiq", "~> 7.3"
+gem "sidekiq", "~> 8.0"
 
 gem "rails-i18n"
 gem "devise-i18n"
